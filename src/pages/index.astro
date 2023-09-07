@@ -1,16 +1,73 @@
 ---
-
+import Layout from "../layout/Layout.astro";
+import { metadata, redes } from "../metadata";
+import Header from "../components/Header.astro";
+import Projects from "../components/projects.astro";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout>
+  <section id="section_primary">
+    <div>
+      <p>Hola! soy</p>
+      <h1>{metadata.name}</h1>
+      <p>Desarrollador <b><mark>Full Stack</mark></b></p>
+
+      <section id="section_redes">
+        {
+          redes.map((data) => (
+            <>
+              <a class={data.abbreviation} href={data.link} target="_blank">
+                <b>{data.web}</b>
+              </a>
+            </>
+          ))
+        }
+      </section>
+    </div>
+  </section>
+
+  <Header />
+  <Projects />
+</Layout>
+
+<style>
+  mark {
+    padding: 2px;
+  }
+
+  #section_primary {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #section_redes {
+    margin-top: 20px;
+
+    display: flex;
+    gap: 10px;
+  }
+
+  #section_redes > a {
+    padding: 5px;
+    font-size: 20px;
+
+    border-radius: 5px;
+    color: #fff;
+    transition: ease 0.3s;
+  }
+
+  #section_redes > a:hover {
+    filter: opacity(50%);
+  }
+
+  .gh {
+    background-color: #2c2929;
+  }
+
+  .in {
+    background-color: #0e76a8;
+  }
+</style>

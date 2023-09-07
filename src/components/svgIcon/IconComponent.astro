@@ -1,0 +1,12 @@
+---
+interface Props {
+  svg: {
+    src: string;
+  };
+  alt: string;
+}
+
+const { alt, svg } = Astro.props;
+---
+
+<img width='40px' src={svg.src} alt={alt} />

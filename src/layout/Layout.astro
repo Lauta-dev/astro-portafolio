@@ -1,0 +1,54 @@
+---
+import { metadata } from "../metadata";
+const { description, name } = metadata;
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="description" content={description} />
+    <meta name="generator" content={Astro.generator} />
+    <title>{name}</title>
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>
+
+<style is:global>
+  h1,
+  b,
+  div,
+  p,
+  section,
+  a,
+  body,
+  ul,
+  li,
+  nav,
+  header,
+  html {
+    padding: 0;
+    margin: 0;
+    font-family: system-ui;
+    color: #fff;
+  }
+
+  body {
+    background-color: #0c0c0c;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  button {
+    cursor: pointer;
+  }
+
+  p {
+    font-size: 25px;
+  }
+</style>
